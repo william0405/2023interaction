@@ -1,0 +1,63 @@
+ArrayList<PVector> pt;
+void setup()
+{
+  size(400,400,P3D);
+  pt = new ArrayList<PVector>();
+  for(int i=0 ; i<37;i++)
+  {
+    pt.add(new PVector(random(400),random(400)));
+  }
+ 
+}
+void draw()
+{
+  background(255);
+  for(PVector test : pt)
+  {
+    ellipse(test.x,test.y,10,10);
+  }
+  if(ans!=null)ellipse(ans.x,ans.y,15,15);
+  
+}
+PVector ans = null;
+
+void mouseDragged()
+{
+  if(ans!=null&&mouseButton ==CENTER)
+  {
+    
+    ans.x = mouseX;
+    ans.y = mouseY;
+  }
+}
+void mousePressed()
+{
+  if(mouseButton ==LEFT)
+  {
+    pt.add(new PVector(mouseX,mouseY));
+  }
+  else if(mouseButton == CENTER)
+  {
+      for(PVector test : pt)
+      {
+        if(dist(test.x,test.y,mouseX,mouseY)< 5)
+        {
+          ans = test;
+        }
+      }
+  }
+  else if(mouseButton ==RIGHT)
+  {
+    for(int i=0;i<pt.size();i++)
+    {
+      PVector test = pt.get(i);
+       if(dist(test.x,test.y,mouseX,mouseY)< 5)
+       {
+         pt.remove(i);
+       }
+      
+    }
+  }
+  
+ 
+}
