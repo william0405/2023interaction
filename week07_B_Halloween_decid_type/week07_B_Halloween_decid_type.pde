@@ -31,7 +31,7 @@ void draw()
    if(p2.x - p.x >0 && p2.y - p.y >0)rightdown+=sqrt(dpx*dpx+dpy*dpy);
    if(green_part1 && p2.x-p.x>0 && p2.y-p.y <0)green_rightup+=sqrt(dpx*dpx+dpy*dpy);
    if(p2.x-p.x>0 && p2.y-p.y <0)rightup+=sqrt(dpx*dpx+dpy*dpy);
-   if(yellow_part1 && p2.x-p.x>0 && p2.y-p.y <0)yellow_rightdown+=sqrt(dpx*dpx+dpy*dpy);
+   if(yellow_part1 && p2.x-p.x>0 && p2.y-p.y >0)yellow_rightdown+=sqrt(dpx*dpx+dpy*dpy);
   
    
    //ellipse(p.x,p.y,10,10);
